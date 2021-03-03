@@ -1,0 +1,103 @@
+ion-content {
+    ion-card {
+        border-radius: 0px;
+        border-bottom: 1px solid var(--ion-color-secondary);
+    }
+    // ion-card {
+    //     background-color: #e0e7ff;
+    //     border-radius: 0px;
+    //     // margin: 0px;
+    //     padding: 0px;
+    // }
+
+    ion-label {
+        font-size: 18px !important;
+        font-family: "roboto-medium" !important;
+        margin-top: 0;
+    }
+    ion-button {
+        width: 100%;
+    }
+
+    ion-list {
+        padding: 10px;
+    }
+
+    .input-text {
+        margin-left: 10px;
+    }
+
+    ion-input {
+        border: 1px solid var(--ion-color-secondary);
+        margin: 10px 0px 10px 0px;
+        padding: 0px;
+        font-size: 18px !important;
+        font-family: "roboto-medium" !important;
+        color: black;
+
+        border-radius: 2px;
+    }
+    ion-select {
+        border: 1px solid var(--ion-color-secondary);
+        margin: 10px 0px 10px 0px;
+        padding: 5px;
+        color: black;
+        font-size: 18px !important;
+        font-family: "roboto-medium" !important;
+
+        border-radius: 2px;
+    }
+    .native-input.sc-ion-input-ios {
+        padding-left: unset;
+        padding-right: unset;
+        -webkit-padding-start: var(--padding-start);
+        padding-inline-start: var(--padding-start);
+        -webkit-padding-end: var(--padding-end);
+        padding-inline-end: var(--padding-end);
+        margin-left: 10px;
+    }
+    .native-input.sc-ion-input-md {
+        padding-left: unset;
+        padding-right: unset;
+        -webkit-padding-start: var(--padding-start);
+        padding-inline-start: var(--padding-start);
+        -webkit-padding-end: var(--padding-end);
+        padding-inline-end: var(--padding-end);
+        margin-left: 10px;
+    }
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
+
+ion-footer {
+    ion-button {
+        width: 100%;
+        margin: 0;
+        // --background: black;
+        --color: white;
+        --border-radius: 0;
+    }
+}
+.row_order {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.row_order_two {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+.img-list {
+    filter: none !important;
+}
+.row_border {
+    border-bottom: 1px solid #e2e2e2;
+}

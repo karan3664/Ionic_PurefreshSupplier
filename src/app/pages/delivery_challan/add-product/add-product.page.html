@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'Add Product' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-label position="stacked" color="dark">{{'Product' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="SelectedFruit" (ngModelChange)="getItems($event)" placeholder="Select Product"
+      (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-list *ngIf="showFruitList == true">
+      <ion-card>
+        <ion-item *ngFor="let data of data" lines="none">
+          <ion-label (click)="setdata(data)">{{data.product_name}} ({{data.variation_value}})</ion-label>
+        </ion-item>
+
+      </ion-card>
+
+    </ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Code' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="code" (ngModelChange)="getItems($event)" (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Ordered Qty' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="ordered_qty" (ngModelChange)="getItems($event)"
+      (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Remaining Qty' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="number" [(ngModel)]="remaining_qty" (ngModelChange)="getItems($event)"
+      (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Delivered Qty ' | translate}}<ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="delivered_qty" (ngModelChange)="getItems($event)"
+      (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Qty' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="number" [(ngModel)]="qty" (ngModelChange)="getQty($event)" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Price' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="price" (ngModelChange)="getItems($event)" (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Total Price' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="total_price" (ngModelChange)="getQty($event)"
+      (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Unit' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="unit_name" (ngModelChange)="getItems($event)" (ionFocus)="checkFocus('true')">
+    </ion-input>
+
+    <ion-button expand="full" (click)="AddProduct()">{{'Add Product' | translate}}</ion-button>
+
+  </ion-list>
+</ion-content>

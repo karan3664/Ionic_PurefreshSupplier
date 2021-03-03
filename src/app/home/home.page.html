@@ -1,0 +1,70 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header class="bar-profile">
+
+        <div class="profile" color="primary">
+          <ion-grid color="primary">
+            <ion-row style="text-align: center;">
+
+              <ion-col size="6">
+                <img class="profile-picture" src="assets/purefreshlogo.png" />
+              </ion-col>
+
+              <ion-col size="6">
+                <h3 class="name">{{name}}</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+        </div>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+
+          <ion-menu-toggle auto-hide="false">
+            <!-- <div *ngFor="let p of appPages">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none">
+                <ion-icon slot="start" ></ion-icon>
+                <ion-label>{{p.title | translate}}</ion-label>
+              </ion-item>
+            </div> -->
+            <ion-item routerDirection="root" routerLink="/home/supplier/dashboard">
+              <ion-icon slot="start" src="assets/supplier.svg"></ion-icon>
+              <ion-label>{{'Supplier Products' | translate}}</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" routerLink="/home/receive_po/receive-purchaseorder-request"> 
+              <ion-icon slot="start" src="assets/cart.svg"></ion-icon>
+              <ion-label>{{'Recevie Purchase Order Request' | translate}}</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" routerLink="/home/delivery_challan/delivery-challan">
+              <ion-icon slot="start" src="assets/truck.svg"></ion-icon>
+              <ion-label>{{'Delivery Challan' | translate}}</ion-label>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-icon slot="start" src="assets/translation.svg"></ion-icon>
+
+              <ion-label>{{'Select Language'|translate}}</ion-label>
+              <ion-select placeholder="Select One" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+                <ion-select-option value="en">{{'English' | translate}}</ion-select-option>
+                <ion-select-option value="Hi">{{'हिन्दी' | translate}}</ion-select-option>
+                <ion-select-option value="guj">{{'ગુજરાતી' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </ion-content>
+      <ion-footer *ngFor="let ff of footerLabel">
+
+        <ion-item (click)="Logout()" color="primary" lines="none" detail="false">
+          <ion-icon slot="start" name="{{ff.icon}}"></ion-icon>
+          <ion-label> {{ff.title | translate}}</ion-label>
+        </ion-item>
+
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

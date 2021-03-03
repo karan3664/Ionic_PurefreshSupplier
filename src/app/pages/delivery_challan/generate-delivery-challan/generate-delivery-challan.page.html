@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'New Delivery Challan' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerLink="/home/delivery_challan/delivery-challan" routerDirection="backward">
+        <ion-icon slot="icon-only" src="assets/custom-icon-tc-shop/back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ion-padding>
+  <ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Purchase Orders' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="SelectedFruit" (ngModelChange)="getItems($event)"
+      placeholder="Select Purchase Order" (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-list *ngIf="showFruitList == true">
+      <ion-card>
+        <ion-item *ngFor="let data of data" lines="none">
+          <ion-label (click)="setdata(data)">{{data.code}}</ion-label>
+        </ion-item>
+
+      </ion-card>
+
+    </ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Send to retailer' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+
+    <ion-select placeholder="Select Yes or No" name="amount" (ionChange)="SelectRet(amount)" [(ngModel)]="amount">
+      <ion-select-option value="0">No</ion-select-option>
+      <ion-select-option value="1">Yes</ion-select-option>
+    </ion-select>
+
+
+    <div *ngIf="amount == '1'">
+      <ion-label position="stacked" color="dark">{{'Retailer' | translate}} <ion-text color="danger">*</ion-text>
+      </ion-label>
+
+      <ion-select [(ngModel)]="filtermonthwise" (ionChange)="RetailerChange(filtermonthwise)"
+        placeholder="Select Retailer">
+        <ion-select-option *ngFor="let retailer of Retailers" [value]="retailer">
+          {{retailer.name}}</ion-select-option>
+      </ion-select>
+
+    </div>
+
+
+
+    <ion-label position="stacked" color="dark">{{'Billing Zipcode' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="billing_zipcode_name" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+
+
+    <ion-label position="stacked" color="dark">{{'Billing City'| translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="billing_city" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Billing State' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="billing_state" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Billing Address' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="billing_address" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'DC Date' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input>
+      <ion-datetime [(ngModel)]="today" displayFormat="DD/MM/YYYY">
+      </ion-datetime>
+    </ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Shipping Zipcode' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="delivery_zipcode" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Shipping City' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="delivery_city" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Shipping State' | translate}}<ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="delivery_state" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Shipping Address' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="delivery_address" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Transporters' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="transporter" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Dispatch Date' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input>
+      <ion-datetime [(ngModel)]="today" displayFormat="DD/MM/YYYY">
+      </ion-datetime>
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Vehicle No' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="vehicle_no" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-label position="stacked" color="dark">{{'Mode Of Transport' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="mode_of_transport" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+
+    <ion-button expand="full" (click)="sumbitDCValue()">{{'Submit' | translate}}</ion-button>
+  </ion-list>
+</ion-content>

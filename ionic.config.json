@@ -1,0 +1,7 @@
+{
+  "name": "purefresh_supplier",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

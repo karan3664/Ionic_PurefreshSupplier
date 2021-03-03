@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'Edit' | translate }} {{Name}} ({{variation_value}})</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+
+    <ion-label position="stacked" color="dark">{{'Product' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" color="dark" [readonly]="isReadonly" name="product_name"
+      [(ngModel)]="postData.product_name" clearInput>
+    </ion-input>
+
+
+    <ion-label position="stacked" color="dark">{{'Code' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="product_code"
+      [(ngModel)]="postData.product_code" clearInput>
+    </ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Ordered Qty' | translate}}</ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="ordered_qty"
+      [(ngModel)]="postData.ordered_qty" clearInput></ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Delivered Qty' | translate}}</ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="delivered_qty"
+      [(ngModel)]="postData.delivered_qty" clearInput>
+    </ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Remaining Qty' | translate}}</ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="remaining_qty"
+      [(ngModel)]="postData.remaining_qty" clearInput>
+    </ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Qty' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" color="dark" name="qty" [(ngModel)]="postData.qty" clearInput>
+    </ion-input>
+
+
+    <ion-label position="stacked" color="dark">{{'Price' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="price"
+      [(ngModel)]="postData.price" clearInput></ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Total Price' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="total_price"
+      [(ngModel)]="postData.total_price" clearInput></ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Unit' | translate}}<ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="unit_name"
+      [(ngModel)]="postData.unit_name" clearInput></ion-input>
+
+
+    <ion-button expand="full" (click)="UpdateDCValue()">{{'Update' | translate}}</ion-button>
+
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'New Product' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerLink="/home/supplier/dashboard" routerDirection="backward">
+        <ion-icon slot="icon-only" src="assets/custom-icon-tc-shop/back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ion-padding>
+  <ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Product' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="SelectedFruit" (ngModelChange)="getItems($event)" placeholder="Select Product"
+      (ionFocus)="checkFocus('true')">
+    </ion-input>
+    <ion-list *ngIf="showFruitList == true">
+      <ion-card>
+        <ion-item *ngFor="let data of data" lines="none">
+          <ion-label (click)="setdata(data)">{{data.product_name}}</ion-label>
+        </ion-item>
+
+      </ion-card>
+
+    </ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Unit' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="search" [(ngModel)]="SelectedQty" placeholder="Select Units" (ionFocus)="checkFocus2('true')">
+    </ion-input>
+    <ion-list *ngIf="showUnitList == true">
+      <ion-card>
+        <ion-item *ngFor="let data of UnitList" lines="none">
+          <ion-label (click)="setdata2(data)">{{data.unit_name}}</ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+    <ion-button expand="full" (click)="submitNewProduct()">{{'Submit' | translate}}</ion-button>
+  </ion-list>
+</ion-content>

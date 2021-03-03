@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'Edit Product' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerLink="/home/supplier/dashboard" routerDirection="backward">
+        <ion-icon slot="icon-only" src="assets/custom-icon-tc-shop/back.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ion-padding>
+
+
+  <ion-list>
+
+    <ion-label position="stacked" color="dark">{{'Product' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" color="dark" [readonly]="isReadonly" name="product_name"
+      [(ngModel)]="postData.product_name" clearInput>
+    </ion-input>
+
+    <ion-label position="stacked" color="dark">{{'Unit' | translate}} <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input type="text" autocomplete="off" [readonly]="isReadonly" color="dark" name="unit_name"
+      [(ngModel)]="postData.unit_name" clearInput>
+    </ion-input>
+
+
+    <ng-template [ngIf]="pricing === null" [ngIfThen]="thenBlock" [ngIfElse]="elseBlock">
+      <div>
+        <ion-label position="stacked" color="dark">{{'Base Price For' | translate}}
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input type="number" autocomplete="off" color="dark" [(ngModel)]="priceItem" name="priceItem" clearInput>
+        </ion-input>
+      </div>
+    </ng-template>
+    <ng-template #thenBlock [ngIf]="pricing != null">
+      <div>
+        <ion-label position="stacked" color="dark">{{'Base Price For' | translate}}
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input type="number" autocomplete="off" color="dark" [(ngModel)]="priceItem" name="priceItem" clearInput>
+        </ion-input>
+      </div>
+    </ng-template>
+    <ng-template #elseBlock>
+      <div *ngFor="let vars of ProductVariation; let i=index" lines="none">
+        <ion-label position="stacked" color="dark">{{'Base Price For' | translate}} {{ vars.variation_name }}
+          ({{vars.variation_value_name}}) <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input type="number" autocomplete="off" color="dark" [(ngModel)]="ProductVariation[i].price"
+          name="ProductVariation[{{i}}].price" clearInput></ion-input>
+      </div>
+    </ng-template>
+
+
+
+    <!-- <div *ngIf="pricing != null && priceing == null; else elseBlock">
+      <ion-label position="stacked" color="dark">{{'Base Price For' | translate}}
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input type="number" autocomplete="off" color="dark" [(ngModel)]="priceItem" name="priceItem" clearInput>
+      </ion-input>
+    </div>
+
+    <ng-template #elseBlock>
+      <div *ngFor="let vars of ProductVariation; let i=index" lines="none">
+
+
+        <ion-label position="stacked" color="dark">{{'Base Price For' | translate}} {{ vars.variation_name }}
+          ({{vars.variation_value_name}}) <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input type="number" autocomplete="off" color="dark" [(ngModel)]="ProductVariation[i].price"
+          name="ProductVariation[{{i}}].price" clearInput></ion-input>
+
+
+
+
+      </div>
+    </ng-template> -->
+
+
+
+
+    <ion-button expand="full" (click)="submitPrice()">{{'Submit' | translate}}</ion-button>
+  </ion-list>
+
+</ion-content>
